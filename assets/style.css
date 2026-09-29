@@ -104,7 +104,6 @@ main {
 .fields { margin: 0.6rem 0 0; font-size: 1.05rem; line-height: 1.45; color: var(--ink); }
 .bio, .block { max-width: var(--measure); }
 .bio p { margin: 0 0 1.1em; }
-.bio p:first-child { font-size: 1.15rem; line-height: 1.5; }
 .block { margin-top: 2.8rem; }
 .block h2 {
   display: inline-block;
@@ -162,6 +161,13 @@ details { flex-basis: 100%; order: 2; }
 details[open] { margin-top: 0.4rem; }
 summary { cursor: pointer; color: var(--link); width: max-content; }
 details p { margin: 0.5rem 0 0; color: var(--ink); max-width: var(--measure); }
+
+.compact-list { list-style: none; margin: 0; padding: 0; }
+.compact-list li { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+.c-title { display: block; font-weight: 500; line-height: 1.35; }
+.c-title a { color: var(--ink); text-decoration-color: var(--rule); }
+.c-title a:hover { color: var(--link); text-decoration-color: currentColor; }
+.c-meta { display: block; margin-top: 0.2rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
 
 @media (max-width: 44rem) {
   html { font-size: 106.25%; }

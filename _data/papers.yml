@@ -3,7 +3,9 @@
 # Fields
 #   status:  project | article | other   (decides which section it appears in)
 #   title, coauthors, venue (journal), volume, year
-#   image:   filename in /images/. If the file isn't there yet, the entry shows without a figure.
+#   image:   filename in /images/. Shown for current projects and selected publications only.
+#   selected: true puts a published paper under "Selected publications" (with its figure);
+#            other published papers appear in the compact text-only lists
 #   url:     where the title links; open-access versions preferred (Strathprints, SocArXiv)
 #   doi:     DOI only (e.g. 10.1093/isq/sqab086); used as the link only when there is no url
 #   code:    replication files link (optional)
@@ -65,14 +67,6 @@
     overstated.
   image: rashomon.png
 
-# Rupture project: uncomment once agreed with Shahryar. Title not settled.
-# - status: project
-#   title: ""
-#   coauthors: "Shahryar Minhas"
-#   summary: ""
-#   slides: ""   # e.g. link to the workshop deck
-#   image: rupture.png
-
 - status: article
   title: "Decisive or Distracted: The Effects of US Constraint on Security Networks"
   coauthors: "Ha Eun Choi, Scott de Marchi, and Shahryar Minhas"
@@ -80,6 +74,7 @@
   volume: "55: e169"
   year: 2025
   image: us-constraint.png
+  selected: true
   url: "https://strathprints.strath.ac.uk/94829/"
 
 - status: article
@@ -89,6 +84,7 @@
   volume: "85(3)"
   year: 2023
   image: election-violence.png
+  selected: true
   url: "https://strathprints.strath.ac.uk/83509/"
   doi: 10.1086/723968
 
@@ -99,6 +95,7 @@
   volume: "53(2)"
   year: 2023
   image: civilian-targeting.png
+  selected: true
   url: "https://strathprints.strath.ac.uk/85836/"
   doi: 10.1017/S0007123422000321
   code: "https://github.com/s7minhas/victimization"
@@ -171,6 +168,7 @@
   volume: "82(2)"
   year: 2020
   image: nigeria.png
+  selected: true
   url: "https://strathprints.strath.ac.uk/66202/"
   doi: 10.1086/706459
   code: "https://github.com/s7minhas/conflictEvolution"
@@ -190,6 +188,7 @@
   volume: "29(3)"
   year: 2017
   image: third-party.png
+  selected: true
   url: "https://strathprints.strath.ac.uk/57197/"
 
 - status: article
