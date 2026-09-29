@@ -1,0 +1,24 @@
+# Site settings. GitHub Pages reads this file when it builds the site.
+title: Max Gallop
+url: "https://maxgallop.com"
+baseurl: ""
+description: >-
+  Max Gallop is Senior Lecturer (Associate Professor) in the Department of
+  Government and Public Policy at the University of Strathclyde.
+email: max.gallop@strath.ac.uk
+photo: /images/max-gallop.jpg
+job_title: Senior Lecturer (Associate Professor)
+department: Department of Government and Public Policy
+institution: University of Strathclyde
+fields: International conflict and quantitative methodology
+profiles:
+  scholar: "https://scholar.google.com/citations?user=X3kiQd8AAAAJ"
+  pure: "https://pureportal.strath.ac.uk/en/persons/max-gallop"
+  orcid: "https://orcid.org/0000-0001-6352-4301"
+
+exclude:
+  - README.md
+
+# Generates /sitemap.xml for search engines; supported by GitHub Pages.
+plugins:
+  - jekyll-sitemap

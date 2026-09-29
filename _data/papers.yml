@@ -1,0 +1,236 @@
+# One entry per paper. The research page is built entirely from this file.
+#
+# Fields
+#   status:  project | article | other   (decides which section it appears in)
+#   title, coauthors, venue (journal), volume, year
+#   image:   filename in /images/. If the file isn't there yet, the entry shows without a figure.
+#   url:     where the title links; open-access versions preferred (Strathprints, SocArXiv)
+#   doi:     DOI only (e.g. 10.1093/isq/sqab086); used as the link only when there is no url
+#   code:    replication files link (optional)
+#   slides:  link to talk slides (optional; useful for projects without a paper)
+#   summary: 1-2 sentences, shown under the title (optional; left out if empty)
+#   abstract: optional; shown as a collapsible "Abstract"
+#
+# Entries appear in the order listed here, so keep newest first within each status.
+
+- status: project
+  title: "Proving Loyalty, Losing Capacity: Military Purges and Wartime Violence Against Civilians"
+  coauthors: "Jun Koga Sudduth"
+  venue: "Under review"
+  summary: >-
+    This project looks at the interplay between two troubling forms of
+    autocratic behaviour, the use of purges to deepen personal control of the
+    military, and the tendency to commit violence against the civilian
+    population during civil conflict. We find that different types of purges
+    have countervailing effects on civilian victimization: large-scale purges
+    disrupt military capacity, leading to lower levels of civilian
+    victimization, while top-ranking purges install new officers who can display
+    their loyalty by carrying out atrocities. These effects operate on different
+    timescales: the loyalty effect comes into play within the first few years,
+    while capacity degradation takes longer to propagate through the military.
+  image: purges.png
+
+- status: project
+  title: "The Tip of the Iceberg: Estimating Underreported Transnational Repression with a Latent Network Model"
+  coauthors: "Howard Liu and Shahryar Minhas"
+  venue: "Working paper"
+  summary: >-
+    A troubling and increasingly salient modern phenomenon is that autocratic
+    repression no longer seems to respect state borders. A growing body of
+    quantitative research relies largely on news reports of the most violent and
+    visible forms of repression, ignoring that autocracies are strategic actors
+    that often have a strong interest in avoiding detection. In this project we
+    apply a novel network model to see if we can detect covert and latent
+    transnational repression, and identify so-called "dark dyads," cases where
+    our model would predict high levels of repression but none is reported. We
+    evaluate these dyads using both out-of-sample testing and cross-checking
+    against qualitative records of China's repression of the Uyghur diaspora.
+  image: tnr.png
+
+- status: project
+  title: "Rashomon Histories: What the Data Support Is Bigger Than What We Report"
+  coauthors: "Alan van Beek, Scott de Marchi, John Nagl, and eleven undergraduate co-authors"
+  venue: "Working paper"
+  summary: >-
+    Empirical work in international relations often hinges on a small number of
+    important historical cases. Yet these cases are coded based on a contested
+    (and changing) historiography, where multiple defensible codings of the same
+    case can coexist. This is particularly true of an important topic like
+    nuclear bargaining. In this project, we examine the historiography around
+    nuclear crises and develop a new technique that assesses how sensitive a
+    particular model is to historiographic uncertainty. We apply this technique
+    to the role of nuclear weapons in crisis bargaining, and confirm research
+    showing that nuclear states are more likely to prevail over non-nuclear
+    states, but find claims that superiority matters in nuclear dyads to be
+    overstated.
+  image: rashomon.png
+
+# Rupture project: uncomment once agreed with Shahryar. Title not settled.
+# - status: project
+#   title: ""
+#   coauthors: "Shahryar Minhas"
+#   summary: ""
+#   slides: ""   # e.g. link to the workshop deck
+#   image: rupture.png
+
+- status: article
+  title: "Decisive or Distracted: The Effects of US Constraint on Security Networks"
+  coauthors: "Ha Eun Choi, Scott de Marchi, and Shahryar Minhas"
+  venue: "British Journal of Political Science"
+  volume: "55: e169"
+  year: 2025
+  image: us-constraint.png
+  url: "https://strathprints.strath.ac.uk/94829/"
+
+- status: article
+  title: "Spatial Dynamics of Election Violence: How Repression Spreads Dissent around Elections"
+  coauthors: "Jun Koga Sudduth"
+  venue: "Journal of Politics"
+  volume: "85(3)"
+  year: 2023
+  image: election-violence.png
+  url: "https://strathprints.strath.ac.uk/83509/"
+  doi: 10.1086/723968
+
+- status: article
+  title: "Network Competition and Civilian Targeting During Civil Conflict"
+  coauthors: "Cassy Dorff and Shahryar Minhas"
+  venue: "British Journal of Political Science"
+  volume: "53(2)"
+  year: 2023
+  image: civilian-targeting.png
+  url: "https://strathprints.strath.ac.uk/85836/"
+  doi: 10.1017/S0007123422000321
+  code: "https://github.com/s7minhas/victimization"
+
+- status: article
+  title: "Taking Dyads Seriously"
+  coauthors: "Shahryar Minhas, Cassy Dorff, Margaret Foster, Howard Liu, Juan Tellez, and Michael D. Ward"
+  venue: "Political Science Research and Methods"
+  volume: "10(4)"
+  year: 2022
+  image: dyads.png
+  url: "https://strathprints.strath.ac.uk/79051/"
+  doi: 10.1017/psrm.2021.56
+  code: "https://github.com/s7minhas/netsMatter"
+
+- status: article
+  title: "Building Cybersecurity Capacity: A Framework of Analysis for National Cybersecurity Strategies"
+  coauthors: "Anthony J.S. Craig and Richard A.I. Johnson"
+  venue: "Journal of Cyber Policy"
+  volume: "7(3)"
+  year: 2022
+  image: cyber-capacity.png
+  url: "https://strathprints.strath.ac.uk/84427/"
+  doi: 10.1080/23738871.2023.2178318
+
+- status: article
+  title: "[W]hat Lies Beneath: Using Latent Networks to Improve Spatial Predictions"
+  coauthors: "Cassy Dorff and Shahryar Minhas"
+  venue: "International Studies Quarterly"
+  volume: "66(1): sqab086"
+  year: 2022
+  image: latent-spatial.png
+  url: "https://strathprints.strath.ac.uk/71227/"
+  doi: 10.1093/isq/sqab086
+
+- status: article
+  title: "Who Are in Charge, Who Do I Work With, and Who Are My Friends: A Latent Space Approach to Understanding Elite Coappearances in China"
+  coauthors: "Narisong Huhe and Shahryar Minhas"
+  venue: "Social Networks"
+  volume: "66"
+  year: 2021
+  image: china-elites.png
+  url: "https://strathprints.strath.ac.uk/75305/"
+  doi: 10.1016/j.socnet.2021.01.002
+  code: "https://github.com/s7minhas/estimatingChina"
+
+- status: article
+  title: "A Network Approach to Measuring State Preferences"
+  coauthors: "Shahryar Minhas"
+  venue: "Network Science"
+  volume: "9(2)"
+  year: 2021
+  image: state-preferences.png
+  url: "https://strathprints.strath.ac.uk/75036/"
+  code: "https://github.com/s7minhas/carbon"
+
+- status: article
+  title: "Polarisation, Accountability, and Interstate Conflict"
+  coauthors: "Zachary Greene"
+  venue: "British Journal of Politics and International Relations"
+  volume: "23(1)"
+  year: 2021
+  image: polarisation.png
+  url: "https://strathprints.strath.ac.uk/72861/"
+
+- status: article
+  title: "Networks of Violence: Predicting Conflict in Nigeria"
+  coauthors: "Cassy Dorff and Shahryar Minhas"
+  venue: "Journal of Politics"
+  volume: "82(2)"
+  year: 2020
+  image: nigeria.png
+  url: "https://strathprints.strath.ac.uk/66202/"
+  doi: 10.1086/706459
+  code: "https://github.com/s7minhas/conflictEvolution"
+
+- status: article
+  title: "Assessing the Impact of Non-Random Measurement Error on Inference: A Sensitivity Analysis Approach"
+  coauthors: "Simon Weschle"
+  venue: "Political Science Research and Methods"
+  volume: "7(2)"
+  year: 2019
+  image: measurement-error.png
+  url: "https://strathprints.strath.ac.uk/59463/"
+
+- status: article
+  title: "More Dangerous than Dyads: How a Third Party Enables Rationalist Explanations for War"
+  venue: "Journal of Theoretical Politics"
+  volume: "29(3)"
+  year: 2017
+  image: third-party.png
+  url: "https://strathprints.strath.ac.uk/57197/"
+
+- status: article
+  title: "Endogenous Networks and International Cooperation"
+  venue: "Journal of Peace Research"
+  volume: "53(3)"
+  year: 2016
+  image: endogenous-networks.png
+  url: "https://strathprints.strath.ac.uk/55296/"
+
+- status: article
+  title: "Cabinet Formation and Portfolio Distribution in European Multi-Party Systems"
+  coauthors: "Josh Cutler, Scott de Marchi, Florian Hollenbach, Michael Laver, and Matthias Orlowski"
+  venue: "British Journal of Political Science"
+  volume: "46(1)"
+  year: 2016
+  image: cabinets.png
+  url: "https://strathprints.strath.ac.uk/57199/"
+
+- status: article
+  title: "Antigovernment Networks in Civil Conflicts: How Network Structures Affect Conflictual Behavior"
+  coauthors: "Nils Metternich, Simon Weschle, Cassy Dorff, and Michael D. Ward"
+  venue: "American Journal of Political Science"
+  volume: "57(4)"
+  year: 2013
+  image: antigov-networks.png
+  url: "https://strathprints.strath.ac.uk/57394/"
+
+- status: article
+  title: "Learning from the Past and Stepping into the Future: Toward a New Generation of Conflict Prediction"
+  coauthors: "Michael D. Ward, Nils Metternich, Cassy Dorff, Florian Hollenbach, Anna Schultz, and Simon Weschle"
+  venue: "International Studies Review"
+  volume: "15(4)"
+  year: 2013
+  image: crisis-prediction.png
+  url: "https://strathprints.strath.ac.uk/57198/"
+
+- status: other
+  title: "Nuclear and Conventional Deterrence in Theory and Practice"
+  coauthors: "Kathryn Cochran, Scott de Marchi, and John Nagl"
+  venue: "SocArXiv preprint"
+  year: 2024
+  image: deterrence.png
+  url: "https://osf.io/preprints/socarxiv/bp5nh_v1"

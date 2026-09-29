@@ -1,0 +1,49 @@
+---
+layout: default
+title: Research
+permalink: /research/
+description: Papers, working papers and publications by Max Gallop, University of Strathclyde.
+---
+<h1 class="page-title">Research</h1>
+
+{% assign groups = "project|Current projects,article|Journal articles,other|Other writing" | split: "," %}
+{% for g in groups %}
+  {% assign parts = g | split: "|" %}
+  {% assign papers = site.data.papers | where: "status", parts[0] %}
+  {% if papers.size > 0 %}
+<section class="papers">
+  <h2>{{ parts[1] }}</h2>
+  {% if parts[0] == "project" %}<p class="section-note">Papers available on request: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
+  <ol class="paper-list">
+  {% for p in papers %}
+    {% assign img_path = "/images/" | append: p.image %}
+    {% assign img = site.static_files | where: "path", img_path | first %}
+    {% assign thumb_path = "/images/thumbs/" | append: p.image %}
+    {% assign thumb = site.static_files | where: "path", thumb_path | first %}
+    {% if thumb %}{% assign src_path = thumb_path %}{% else %}{% assign src_path = img_path %}{% endif %}
+    {% if p.url %}{% assign link = p.url %}{% elsif p.doi %}{% assign link = "https://doi.org/" | append: p.doi %}{% else %}{% assign link = nil %}{% endif %}
+    <li class="paper{% unless img %} no-figure{% endunless %}">
+      {% if img %}
+      <a class="figure" href="{{ img_path | relative_url }}" aria-label="Full-size figure: {{ p.title | escape }}">
+        <img src="{{ src_path | relative_url }}" alt="Figure from {{ p.title | escape }}" loading="lazy">
+      </a>
+      {% endif %}
+      <div class="paper-text">
+        <h3>{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+        {% if p.coauthors %}<p class="authors">With {{ p.coauthors }}</p>{% endif %}
+        {% if p.venue %}<p class="venue">{% if p.status == "other" or p.status == "project" %}{{ p.venue }}{% else %}<cite>{{ p.venue }}</cite>{% endif %}{% if p.volume %} {{ p.volume }}{% endif %}{% if p.year %}, {{ p.year }}{% endif %}</p>{% endif %}
+        {% if p.summary and p.summary != "" %}<p class="summary">{{ p.summary | smartify }}</p>{% endif %}
+        {% if p.abstract or p.code or p.slides %}
+        <div class="extras">
+          {% if p.abstract %}<details><summary>Abstract</summary><p>{{ p.abstract }}</p></details>{% endif %}
+          {% if p.code %}<a href="{{ p.code }}">Replication files</a>{% endif %}
+          {% if p.slides %}<a href="{{ p.slides }}">Slides</a>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
+</section>
+  {% endif %}
+{% endfor %}

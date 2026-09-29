@@ -1,0 +1,17 @@
+/* Option B, kept for later: charcoal header band (colour from the jacket in
+   the portrait). Not used by the site. To try it, paste below the contents of
+   assets/style.css. Before adopting: slim the band on the research page and
+   give it a lighter shade in dark mode, where it would match the page. */
+:root { --band: #2a2f35; --band-ink: #f3f4f2; --band-muted: #b8bec3; }
+body { overflow-x: hidden; }
+.site-header, .intro, .page-title {
+  background: var(--band);
+  box-shadow: 0 0 0 100vmax var(--band);
+  clip-path: inset(0 -100vmax);
+}
+.site-header .site-name, .intro h1, .page-title { color: var(--band-ink); }
+.site-header nav a { color: var(--band-muted); }
+.site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--band-ink); }
+.role { color: var(--band-muted); }
+.intro { padding-bottom: 2.75rem; margin-bottom: 2.5rem; }
+.page-title { margin-top: 0; padding: 1.5rem 0 2rem; }

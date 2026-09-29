@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<section class="intro">
+  <div class="intro-text">
+    <h1>Max Gallop</h1>
+    <p class="role">{{ site.job_title }}<br>{{ site.department }}<br>{{ site.institution }}</p>
+    <p class="fields">{{ site.fields }}</p>
+  </div>
+  <img class="portrait" src="{{ site.photo | relative_url }}" alt="Max Gallop" width="800" height="1000">
+</section>
+
+<section class="bio">
+  <p>Armed conflicts are deeply messy: one of the main sources of this messiness is that they are rarely the pure two-actor conflicts that are the focus of many of our empirical and theoretical models. In my research I embrace this complexity using statistical, network, and formal models to aid in explaining and preventing political violence. Prediction is invaluable both to tell us whether we have understood complex conflict processes, and to provide an early-warning system that can help us respond to violence and crises in time.</p>
+  <p>My research has two connected strands. The first uses strategic models of conflict to understand bargaining, war, and how strategic behaviour changes when states act within dense networks of interdependence rather than in isolated pairs. The second develops network methods for inferring concealed alignments from observable behaviour: detecting shifts in state alignment from UN voting, trade and alliance data; measuring transnational repression from news reports; and identifying factional ties within the Chinese Communist Party.</p>
+  <p>My work has appeared in the American Journal of Political Science and the British Journal of Political Science, among other outlets. I received my PhD from Duke University in 2015.</p>
+</section>
+
+<section class="block">
+  <h2>Book</h2>
+  <p><cite>Prediction-Based Social Science: Building Cumulative Knowledge in the AI Era</cite>, with Scott de Marchi, Libby Jenke, and Scott Page. Under contract, Cambridge University Press.</p>
+</section>
+
+<section class="block">
+  <h2>Contact</h2>
+  <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  <p>Lord Hope Building, 141 St James Road<br>Glasgow G4 0LT, United Kingdom</p>
+  <p class="profiles">
+    <a href="{{ site.profiles.scholar }}">Google Scholar</a>
+    <a href="{{ site.profiles.pure }}">Strathclyde profile</a>
+    {% if site.profiles.orcid %}<a href="{{ site.profiles.orcid }}">ORCID</a>{% endif %}
+  </p>
+</section>
