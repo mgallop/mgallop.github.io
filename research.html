@@ -6,26 +6,27 @@ description: Papers, working papers and publications by Max Gallop, University o
 ---
 <h1 class="page-title">Research</h1>
 
-{% comment %} Sections with figures: current projects, then selected publications. {% endcomment %}
-{% assign figure_sections = "project|Current projects,selected|Selected publications" | split: "," %}
-{% for g in figure_sections %}
+<nav class="filters" aria-label="Filter by topic" hidden>
+  <button type="button" data-filter="all" aria-pressed="true">All</button>
+  {% for c in site.data.categories %}<button type="button" data-filter="{{ c.key }}" aria-pressed="false">{{ c.label }}</button>
+  {% endfor %}
+</nav>
+
+{% assign groups = "project|Current projects,article|Journal articles,other|Other writing" | split: "," %}
+{% for g in groups %}
 {% assign parts = g | split: "|" %}
 <section class="papers">
   <h2>{{ parts[1] }}</h2>
   {% if parts[0] == "project" %}<p class="section-note">Papers available on request: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
   <ol class="paper-list">
-  {% for p in site.data.papers %}
-    {% assign show = false %}
-    {% if parts[0] == "project" %}{% if p.status == "project" %}{% assign show = true %}{% endif %}{% endif %}
-    {% if parts[0] == "selected" %}{% if p.status == "article" %}{% if p.selected %}{% assign show = true %}{% endif %}{% endif %}{% endif %}
-    {% if show %}
+  {% for p in site.data.papers %}{% if p.status == parts[0] %}
     {% assign img_path = "/images/" | append: p.image %}
     {% assign img = site.static_files | where: "path", img_path | first %}
     {% assign thumb_path = "/images/thumbs/" | append: p.image %}
     {% assign thumb = site.static_files | where: "path", thumb_path | first %}
     {% if thumb %}{% assign src_path = thumb_path %}{% else %}{% assign src_path = img_path %}{% endif %}
     {% if p.url %}{% assign link = p.url %}{% elsif p.doi %}{% assign link = "https://doi.org/" | append: p.doi %}{% else %}{% assign link = nil %}{% endif %}
-    <li class="paper{% unless img %} no-figure{% endunless %}">
+    <li data-tags="{{ p.tags | join: ' ' }}" class="paper{% unless img %} no-figure{% endunless %}{% if p.summary and p.summary != "" %} has-summary{% endif %}">
       {% if img %}
       <a class="figure" href="{{ img_path | relative_url }}" aria-label="Full-size figure: {{ p.title | escape }}">
         <img src="{{ src_path | relative_url }}" alt="Figure from {{ p.title | escape }}" loading="lazy">
@@ -34,7 +35,7 @@ description: Papers, working papers and publications by Max Gallop, University o
       <div class="paper-text">
         <h3>{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
         {% if p.coauthors %}<p class="authors">With {{ p.coauthors }}</p>{% endif %}
-        {% if p.venue %}<p class="venue">{% if p.status == "project" %}{{ p.venue }}{% else %}<cite>{{ p.venue }}</cite>{% endif %}{% if p.volume %} {{ p.volume }}{% endif %}{% if p.year %}, {{ p.year }}{% endif %}</p>{% endif %}
+        {% if p.venue %}<p class="venue">{% if p.status == "project" or p.status == "other" %}{{ p.venue }}{% else %}<cite>{{ p.venue }}</cite>{% endif %}{% if p.volume %} {{ p.volume }}{% endif %}{% if p.year %}, {{ p.year }}{% endif %}</p>{% endif %}
         {% if p.summary and p.summary != "" %}<p class="summary">{{ p.summary | smartify }}</p>{% endif %}
         {% if p.abstract or p.code or p.slides %}
         <div class="extras">
@@ -45,30 +46,39 @@ description: Papers, working papers and publications by Max Gallop, University o
         {% endif %}
       </div>
     </li>
-    {% endif %}
-  {% endfor %}
+  {% endif %}{% endfor %}
   </ol>
 </section>
 {% endfor %}
 
-{% comment %} Compact, text-only lists for everything else. {% endcomment %}
-{% assign compact_sections = "article|Other journal articles,other|Other writing" | split: "," %}
-{% for g in compact_sections %}
-{% assign parts = g | split: "|" %}
-<section class="papers">
-  <h2>{{ parts[1] }}</h2>
-  <ol class="compact-list">
-  {% for p in site.data.papers %}
-    {% assign show = false %}
-    {% if p.status == parts[0] %}{% unless p.selected %}{% assign show = true %}{% endunless %}{% endif %}
-    {% if show %}
-    {% if p.url %}{% assign link = p.url %}{% elsif p.doi %}{% assign link = "https://doi.org/" | append: p.doi %}{% else %}{% assign link = nil %}{% endif %}
-    <li>
-      <span class="c-title">{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</span>
-      <span class="c-meta">{% if p.coauthors %}With {{ p.coauthors }}. {% endif %}{% if p.status == "other" %}{{ p.venue }}{% else %}<cite>{{ p.venue }}</cite>{% endif %}{% if p.volume %} {{ p.volume }}{% endif %}{% if p.year %}, {{ p.year }}{% endif %}.{% if p.code %} <a href="{{ p.code }}">Replication files</a>{% endif %}</span>
-    </li>
-    {% endif %}
-  {% endfor %}
-  </ol>
-</section>
-{% endfor %}
+<script>
+(function () {
+  var nav = document.querySelector('.filters');
+  if (!nav) return;
+  nav.hidden = false;
+  var buttons = nav.querySelectorAll('button');
+  var keys = Array.prototype.map.call(buttons, function (b) { return b.dataset.filter; });
+
+  function apply(key) {
+    if (keys.indexOf(key) === -1) key = 'all';
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.filter === key ? 'true' : 'false'); });
+    document.querySelectorAll('.paper-list > li').forEach(function (li) {
+      var tags = (li.dataset.tags || '').split(' ');
+      li.hidden = !(key === 'all' || tags.indexOf(key) !== -1);
+    });
+    document.querySelectorAll('section.papers').forEach(function (sec) {
+      sec.hidden = !sec.querySelector('.paper-list > li:not([hidden])');
+    });
+  }
+
+  nav.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    var key = b.dataset.filter;
+    history.replaceState(null, '', key === 'all' ? location.pathname : '#' + key);
+    apply(key);
+  });
+  window.addEventListener('hashchange', function () { apply(location.hash.slice(1)); });
+  apply(location.hash.slice(1) || 'all');
+})();
+</script>

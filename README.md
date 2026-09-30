@@ -6,6 +6,12 @@ Jekyll site, built and hosted by GitHub Pages. Nothing to install locally.
 Edit `_data/papers.yml`. Titles link to `url:` (open-access versions preferred), falling back to the DOI. The research page is generated from it; the field
 list is at the top of the file. Entries show in the order listed.
 
+## Topics
+Categories live in `_data/categories.yml` (key and button label). Give each paper
+`tags: [key, key]` in `_data/papers.yml`; one to three per paper works best.
+Each category has its own link, e.g. https://maxgallop.com/research/#prediction.
+To rename a category, change only its label; the key can stay.
+
 ## Current projects
 Entries with `status: project` appear under "Current projects" at the top of
 the research page. Fill in `summary:` (1-2 sentences) for each; it is left out

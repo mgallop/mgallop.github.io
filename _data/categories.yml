@@ -1,0 +1,15 @@
+# Categories for filtering the research page. Order here = order of the buttons.
+# key: short id used in each paper's tags (and in links like /research/#prediction)
+# label: text on the button
+- key: civil
+  label: Civil conflict and political violence
+- key: international
+  label: International conflict and cooperation
+- key: repression
+  label: Repression and authoritarian politics
+- key: multi-actor
+  label: Multi-actor strategic interaction
+- key: prediction
+  label: Prediction and forecasting
+- key: measurement
+  label: Methods and measurement

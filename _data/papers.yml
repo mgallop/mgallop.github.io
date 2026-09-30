@@ -3,9 +3,8 @@
 # Fields
 #   status:  project | article | other   (decides which section it appears in)
 #   title, coauthors, venue (journal), volume, year
-#   image:   filename in /images/. Shown for current projects and selected publications only.
-#   selected: true puts a published paper under "Selected publications" (with its figure);
-#            other published papers appear in the compact text-only lists
+#   image:   filename in /images/. If the file isn't there yet, the entry shows without a figure.
+#   tags:    list of category keys from _data/categories.yml, e.g. [civil, prediction]
 #   url:     where the title links; open-access versions preferred (Strathprints, SocArXiv)
 #   doi:     DOI only (e.g. 10.1093/isq/sqab086); used as the link only when there is no url
 #   code:    replication files link (optional)
@@ -31,6 +30,7 @@
     timescales: the loyalty effect comes into play within the first few years,
     while capacity degradation takes longer to propagate through the military.
   image: purges.png
+  tags: [civil, repression]
 
 - status: project
   title: "The Tip of the Iceberg: Estimating Underreported Transnational Repression with a Latent Network Model"
@@ -48,6 +48,7 @@
     evaluate these dyads using both out-of-sample testing and cross-checking
     against qualitative records of China's repression of the Uyghur diaspora.
   image: tnr.png
+  tags: [repression, measurement]
 
 - status: project
   title: "Rashomon Histories: What the Data Support Is Bigger Than What We Report"
@@ -66,6 +67,7 @@
     states, but find claims that superiority matters in nuclear dyads to be
     overstated.
   image: rashomon.png
+  tags: [international, measurement]
 
 - status: article
   title: "Decisive or Distracted: The Effects of US Constraint on Security Networks"
@@ -74,7 +76,7 @@
   volume: "55: e169"
   year: 2025
   image: us-constraint.png
-  selected: true
+  tags: [international, measurement]
   url: "https://strathprints.strath.ac.uk/94829/"
 
 - status: article
@@ -84,7 +86,7 @@
   volume: "85(3)"
   year: 2023
   image: election-violence.png
-  selected: true
+  tags: [civil, repression]
   url: "https://strathprints.strath.ac.uk/83509/"
   doi: 10.1086/723968
 
@@ -95,7 +97,7 @@
   volume: "53(2)"
   year: 2023
   image: civilian-targeting.png
-  selected: true
+  tags: [civil, multi-actor]
   url: "https://strathprints.strath.ac.uk/85836/"
   doi: 10.1017/S0007123422000321
   code: "https://github.com/s7minhas/victimization"
@@ -107,6 +109,7 @@
   volume: "10(4)"
   year: 2022
   image: dyads.png
+  tags: [prediction, measurement]
   url: "https://strathprints.strath.ac.uk/79051/"
   doi: 10.1017/psrm.2021.56
   code: "https://github.com/s7minhas/netsMatter"
@@ -118,6 +121,7 @@
   volume: "7(3)"
   year: 2022
   image: cyber-capacity.png
+  tags: [international]
   url: "https://strathprints.strath.ac.uk/84427/"
   doi: 10.1080/23738871.2023.2178318
 
@@ -128,6 +132,7 @@
   volume: "66(1): sqab086"
   year: 2022
   image: latent-spatial.png
+  tags: [civil, prediction]
   url: "https://strathprints.strath.ac.uk/71227/"
   doi: 10.1093/isq/sqab086
 
@@ -138,6 +143,7 @@
   volume: "66"
   year: 2021
   image: china-elites.png
+  tags: [repression, measurement]
   url: "https://strathprints.strath.ac.uk/75305/"
   doi: 10.1016/j.socnet.2021.01.002
   code: "https://github.com/s7minhas/estimatingChina"
@@ -149,6 +155,7 @@
   volume: "9(2)"
   year: 2021
   image: state-preferences.png
+  tags: [international, measurement]
   url: "https://strathprints.strath.ac.uk/75036/"
   code: "https://github.com/s7minhas/carbon"
 
@@ -159,6 +166,7 @@
   volume: "23(1)"
   year: 2021
   image: polarisation.png
+  tags: [international]
   url: "https://strathprints.strath.ac.uk/72861/"
 
 - status: article
@@ -168,7 +176,7 @@
   volume: "82(2)"
   year: 2020
   image: nigeria.png
-  selected: true
+  tags: [civil, prediction]
   url: "https://strathprints.strath.ac.uk/66202/"
   doi: 10.1086/706459
   code: "https://github.com/s7minhas/conflictEvolution"
@@ -180,6 +188,7 @@
   volume: "7(2)"
   year: 2019
   image: measurement-error.png
+  tags: [measurement]
   url: "https://strathprints.strath.ac.uk/59463/"
 
 - status: article
@@ -188,7 +197,7 @@
   volume: "29(3)"
   year: 2017
   image: third-party.png
-  selected: true
+  tags: [international, multi-actor]
   url: "https://strathprints.strath.ac.uk/57197/"
 
 - status: article
@@ -197,6 +206,7 @@
   volume: "53(3)"
   year: 2016
   image: endogenous-networks.png
+  tags: [international, multi-actor]
   url: "https://strathprints.strath.ac.uk/55296/"
 
 - status: article
@@ -206,6 +216,7 @@
   volume: "46(1)"
   year: 2016
   image: cabinets.png
+  tags: [multi-actor]
   url: "https://strathprints.strath.ac.uk/57199/"
 
 - status: article
@@ -215,6 +226,7 @@
   volume: "57(4)"
   year: 2013
   image: antigov-networks.png
+  tags: [civil, multi-actor]
   url: "https://strathprints.strath.ac.uk/57394/"
 
 - status: article
@@ -224,6 +236,7 @@
   volume: "15(4)"
   year: 2013
   image: crisis-prediction.png
+  tags: [civil, prediction]
   url: "https://strathprints.strath.ac.uk/57198/"
 
 - status: other
@@ -232,4 +245,5 @@
   venue: "SocArXiv preprint"
   year: 2024
   image: deterrence.png
+  tags: [international, measurement]
   url: "https://osf.io/preprints/socarxiv/bp5nh_v1"
